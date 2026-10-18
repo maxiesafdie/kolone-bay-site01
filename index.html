@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<style>html{color-scheme:light}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);box-sizing:border-box}body{margin:0;font:14px/1.4 system-ui,-apple-system,"Segoe UI",sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<title>Kolone Bay Site 01</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+.leaflet-image-layer,.leaflet-layer,.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-pane,.leaflet-pane>canvas,.leaflet-pane>svg,.leaflet-tile,.leaflet-tile-container,.leaflet-zoom-box{position:absolute;left:0;top:0}.leaflet-container{overflow:hidden}.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-tile{-webkit-user-select:none;-moz-user-select:none;user-select:none;-webkit-user-drag:none}.leaflet-tile::selection{background:0 0}.leaflet-safari .leaflet-tile{image-rendering:-webkit-optimize-contrast}.leaflet-safari .leaflet-tile-container{width:1600px;height:1600px;-webkit-transform-origin:0 0}.leaflet-marker-icon,.leaflet-marker-shadow{display:block}.leaflet-container .leaflet-overlay-pane svg{max-width:none!important;max-height:none!important}.leaflet-container .leaflet-marker-pane img,.leaflet-container .leaflet-shadow-pane img,.leaflet-container .leaflet-tile,.leaflet-container .leaflet-tile-pane img,.leaflet-container img.leaflet-image-layer{max-width:none!important;max-height:none!important;width:auto;padding:0}.leaflet-container img.leaflet-tile{mix-blend-mode:plus-lighter}.leaflet-container.leaflet-touch-zoom{-ms-touch-action:pan-x pan-y;touch-action:pan-x pan-y}.leaflet-container.leaflet-touch-drag{-ms-touch-action:pinch-zoom;touch-action:none;touch-action:pinch-zoom}.leaflet-container.leaflet-touch-drag.leaflet-touch-zoom{-ms-touch-action:none;touch-action:none}.leaflet-container{-webkit-tap-highlight-color:transparent}.leaflet-container a{-webkit-tap-highlight-color:rgba(51,181,229,.4)}.leaflet-tile{filter:inherit;visibility:hidden}.leaflet-tile-loaded{visibility:inherit}.leaflet-zoom-box{width:0;height:0;-moz-box-sizing:border-box;box-sizing:border-box;z-index:800}.leaflet-overlay-pane svg{-moz-user-select:none}.leaflet-pane{z-index:400}.leaflet-tile-pane{z-index:200}.leaflet-overlay-pane{z-index:400}.leaflet-shadow-pane{z-index:500}.leaflet-marker-pane{z-index:600}.leaflet-tooltip-pane{z-index:650}.leaflet-popup-pane{z-index:700}.leaflet-map-pane canvas{z-index:100}.leaflet-map-pane svg{z-index:200}.leaflet-vml-shape{width:1px;height:1px}.lvml{behavior:url(#default#VML);display:inline-block;position:absolute}.leaflet-control{position:relative;z-index:800;pointer-events:visiblePainted;pointer-events:auto}.leaflet-bottom,.leaflet-top{position:absolute;z-index:1000;pointer-events:none}.leaflet-top{top:0}.leaflet-right{right:0}.leaflet-bottom{bottom:0}.leaflet-left{left:0}.leaflet-control{float:left;clear:both}.leaflet-right .leaflet-control{float:right}.leaflet-top .leaflet-control{margin-top:10px}.leaflet-bottom .leaflet-control{margin-bottom:10px}.leaflet-left .leaflet-control{margin-left:10px}.leaflet-right .leaflet-control{margin-right:10px}.leaflet-fade-anim .leaflet-popup{opacity:0;-webkit-transition:opacity .2s linear;-moz-transition:opacity .2s linear;transition:opacity .2s linear}.leaflet-fade-anim .leaflet-map-pane .leaflet-popup{opacity:1}.leaflet-zoom-animated{-webkit-transform-origin:0 0;-ms-transform-origin:0 0;transform-origin:0 0}svg.leaflet-zoom-animated{will-change:transform}.leaflet-zoom-anim .leaflet-zoom-animated{-webkit-transition:-webkit-transform .25s cubic-bezier(0,0,.25,1);-moz-transition:-moz-transform .25s cubic-bezier(0,0,.25,1);transition:transform .25s cubic-bezier(0,0,.25,1)}.leaflet-pan-anim .leaflet-tile,.leaflet-zoom-anim .leaflet-tile{-webkit-transition:none;-moz-transition:none;transition:none}.leaflet-zoom-anim .leaflet-zoom-hide{visibility:hidden}.leaflet-interactive{cursor:pointer}.leaflet-grab{cursor:-webkit-grab;cursor:-moz-grab;cursor:grab}.leaflet-crosshair,.leaflet-crosshair .leaflet-interactive{cursor:crosshair}.leaflet-control,.leaflet-popup-pane{cursor:auto}.leaflet-dragging .leaflet-grab,.leaflet-dragging .leaflet-grab .leaflet-interactive,.leaflet-dragging .leaflet-marker-draggable{cursor:move;cursor:-webkit-grabbing;cursor:-moz-grabbing;cursor:grabbing}.leaflet-image-layer,.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-pane>svg path,.leaflet-tile-container{pointer-events:none}.leaflet-image-layer.leaflet-interactive,.leaflet-marker-icon.leaflet-interactive,.leaflet-pane>svg path.leaflet-interactive,svg.leaflet-image-layer.leaflet-interactive path{pointer-events:visiblePainted;pointer-events:auto}.leaflet-container{background:#ddd;outline-offset:1px}.leaflet-container a{color:#0078a8}.leaflet-zoom-box{border:2px dotted #38f;background:rgba(255,255,255,.5)}.leaflet-container{font-family:"Helvetica Neue",Arial,Helvetica,sans-serif;font-size:12px;font-size:.75rem;line-height:1.5}.leaflet-bar{box-shadow:0 1px 5px rgba(0,0,0,.65);border-radius:4px}.leaflet-bar a{background-color:#fff;border-bottom:1px solid #ccc;width:26px;height:26px;line-height:26px;display:block;text-align:center;text-decoration:none;color:#000}.leaflet-bar a,.leaflet-control-layers-toggle{background-position:50% 50%;background-repeat:no-repeat;display:block}.leaflet-bar a:focus,.leaflet-bar a:hover{background-color:#f4f4f4}.leaflet-bar a:first-child{border-top-left-radius:4px;border-top-right-radius:4px}.leaflet-bar a:last-child{border-bottom-left-radius:4px;border-bottom-right-radius:4px;border-bottom:none}.leaflet-bar a.leaflet-disabled{cursor:default;background-color:#f4f4f4;color:#bbb}.leaflet-touch .leaflet-bar a{width:30px;height:30px;line-height:30px}.leaflet-touch .leaflet-bar a:first-child{border-top-left-radius:2px;border-top-right-radius:2px}.leaflet-touch .leaflet-bar a:last-child{border-bottom-left-radius:2px;border-bottom-right-radius:2px}.leaflet-control-zoom-in,.leaflet-control-zoom-out{font:bold 18px 'Lucida Console',Monaco,monospace;text-indent:1px}.leaflet-touch .leaflet-control-zoom-in,.leaflet-touch .leaflet-control-zoom-out{font-size:22px}.leaflet-control-layers{box-shadow:0 1px 5px rgba(0,0,0,.4);background:#fff;border-radius:5px}.leaflet-control-layers-toggle{background-image:url(images/layers.png);width:36px;height:36px}.leaflet-retina .leaflet-control-layers-toggle{background-image:url(images/layers-2x.png);background-size:26px 26px}.leaflet-touch .leaflet-control-layers-toggle{width:44px;height:44px}.leaflet-control-layers .leaflet-control-layers-list,.leaflet-control-layers-expanded .leaflet-control-layers-toggle{display:none}.leaflet-control-layers-expanded .leaflet-control-layers-list{display:block;position:relative}.leaflet-control-layers-expanded{padding:6px 10px 6px 6px;color:#333;background:#fff}.leaflet-control-layers-scrollbar{overflow-y:scroll;overflow-x:hidden;padding-right:5px}.leaflet-control-layers-selector{margin-top:2px;position:relative;top:1px}.leaflet-control-layers label{display:block;font-size:13px;font-size:1.08333em}.leaflet-control-layers-separator{height:0;border-top:1px solid #ddd;margin:5px -10px 5px -6px}.leaflet-default-icon-path{background-image:url(images/marker-icon.png)}.leaflet-container .leaflet-control-attribution{background:#fff;background:rgba(255,255,255,.8);margin:0}.leaflet-control-attribution,.leaflet-control-scale-line{padding:0 5px;color:#333;line-height:1.4}.leaflet-control-attribution a{text-decoration:none}.leaflet-control-attribution a:focus,.leaflet-control-attribution a:hover{text-decoration:underline}.leaflet-attribution-flag{display:inline!important;vertical-align:baseline!important;width:1em;height:.6669em}.leaflet-left .leaflet-control-scale{margin-left:5px}.leaflet-bottom .leaflet-control-scale{margin-bottom:5px}.leaflet-control-scale-line{border:2px solid #777;border-top:none;line-height:1.1;padding:2px 5px 1px;white-space:nowrap;-moz-box-sizing:border-box;box-sizing:border-box;background:rgba(255,255,255,.8);text-shadow:1px 1px #fff}.leaflet-control-scale-line:not(:first-child){border-top:2px solid #777;border-bottom:none;margin-top:-2px}.leaflet-control-scale-line:not(:first-child):not(:last-child){border-bottom:2px solid #777}.leaflet-touch .leaflet-bar,.leaflet-touch .leaflet-control-attribution,.leaflet-touch .leaflet-control-layers{box-shadow:none}.leaflet-touch .leaflet-bar,.leaflet-touch .leaflet-control-layers{border:2px solid rgba(0,0,0,.2);background-clip:padding-box}.leaflet-popup{position:absolute;text-align:center;margin-bottom:20px}.leaflet-popup-content-wrapper{padding:1px;text-align:left;border-radius:12px}.leaflet-popup-content{margin:13px 24px 13px 20px;line-height:1.3;font-size:13px;font-size:1.08333em;min-height:1px}.leaflet-popup-content p{margin:17px 0;margin:1.3em 0}.leaflet-popup-tip-container{width:40px;height:20px;position:absolute;left:50%;margin-top:-1px;margin-left:-20px;overflow:hidden;pointer-events:none}.leaflet-popup-tip{width:17px;height:17px;padding:1px;margin:-10px auto 0;pointer-events:auto;-webkit-transform:rotate(45deg);-moz-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg)}.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:#fff;color:#333;box-shadow:0 3px 14px rgba(0,0,0,.4)}.leaflet-container a.leaflet-popup-close-button{position:absolute;top:0;right:0;border:none;text-align:center;width:24px;height:24px;font:16px/24px Tahoma,Verdana,sans-serif;color:#757575;text-decoration:none;background:0 0}.leaflet-container a.leaflet-popup-close-button:focus,.leaflet-container a.leaflet-popup-close-button:hover{color:#585858}.leaflet-popup-scrolled{overflow:auto}.leaflet-oldie .leaflet-popup-content-wrapper{-ms-zoom:1}.leaflet-oldie .leaflet-popup-tip{width:24px;margin:0 auto}.leaflet-oldie .leaflet-control-layers,.leaflet-oldie .leaflet-control-zoom,.leaflet-oldie .leaflet-popup-content-wrapper,.leaflet-oldie .leaflet-popup-tip{border:1px solid #999}.leaflet-div-icon{background:#fff;border:1px solid #666}.leaflet-tooltip{position:absolute;padding:6px;background-color:#fff;border:1px solid #fff;border-radius:3px;color:#222;white-space:nowrap;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;pointer-events:none;box-shadow:0 1px 3px rgba(0,0,0,.4)}.leaflet-tooltip.leaflet-interactive{cursor:pointer;pointer-events:auto}.leaflet-tooltip-bottom:before,.leaflet-tooltip-left:before,.leaflet-tooltip-right:before,.leaflet-tooltip-top:before{position:absolute;pointer-events:none;border:6px solid transparent;background:0 0;content:""}.leaflet-tooltip-bottom{margin-top:6px}.leaflet-tooltip-top{margin-top:-6px}.leaflet-tooltip-bottom:before,.leaflet-tooltip-top:before{left:50%;margin-left:-6px}.leaflet-tooltip-top:before{bottom:0;margin-bottom:-12px;border-top-color:#fff}.leaflet-tooltip-bottom:before{top:0;margin-top:-12px;margin-left:-6px;border-bottom-color:#fff}.leaflet-tooltip-left{margin-left:-6px}.leaflet-tooltip-right{margin-left:6px}.leaflet-tooltip-left:before,.leaflet-tooltip-right:before{top:50%;margin-top:-6px}.leaflet-tooltip-left:before{right:0;margin-right:-12px;border-left-color:#fff}.leaflet-tooltip-right:before{left:0;margin-left:-12px;border-right-color:#fff}@media print{.leaflet-control{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+<style>
+/* Layout: one-screen field tool. Header strip, ortho map filling the left, block register on the right (stacks under the map on phones). */
+:root {
+  --bg: #e8eeed;
+  --panel: #f8fbfa;
+  --fg: #12211f;
+  --muted: #566a67;
+  --rule: #cdd9d7;
+  --accent: #0b7d73;
+  --accent-fg: #ffffff;
+  --danger: #b4322a;
+  --seabed: #c3cfcc;
+  --line: #2ff0db;
+  --line-sel: #ffd23f;
+  --line-bone: #ff5a36;
+  --halo: rgba(6, 20, 18, .55);
+  --label-bg: rgba(8, 24, 22, .78);
+  --label-fg: #f2fffd;
+  --draw: #ff7a45;
+  --f-display: "Barlow Condensed", "Arial Narrow", system-ui, sans-serif;
+  --f-body: "Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0a1312; --panel: #101c1b; --fg: #e2eeec; --muted: #8ea4a0; --rule: #223432;
+  --accent: #3fd1c2; --accent-fg: #062320; --danger: #ff7b70; --seabed: #0d1a19;
+  --label-bg: rgba(4, 14, 13, .82); color-scheme: dark;
+} }
+:root[data-theme="dark"] {
+  --bg: #0a1312; --panel: #101c1b; --fg: #e2eeec; --muted: #8ea4a0; --rule: #223432;
+  --accent: #3fd1c2; --accent-fg: #062320; --danger: #ff7b70; --seabed: #0d1a19;
+  --label-bg: rgba(4, 14, 13, .82); color-scheme: dark;
+}
+html, body { height: 100%; }
+[hidden] { display: none !important; }
+#map.lowz .gridlbl.odd { display: none; }
+body { background: var(--bg); color: var(--fg); font: 15px/1.45 var(--f-body); }
+.app { height: 100%; display: grid; grid-template-rows: auto 1fr; }
+header {
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  padding-block: 10px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  border-bottom: 1px solid var(--rule); background: var(--panel);
+}
+.site { display: flex; flex-direction: column; min-width: 0; }
+.site h1 { margin: 0; font: 700 22px/1.05 var(--f-display); letter-spacing: .01em; text-wrap: balance; }
+.site .sub { font: 500 11px/1.3 var(--f-mono); color: var(--muted); letter-spacing: .06em; text-transform: uppercase; }
+.stats { display: flex; gap: 18px; margin-left: auto; font-variant-numeric: tabular-nums; }
+.stat { display: flex; flex-direction: column; align-items: flex-end; }
+.stat b { font: 600 20px/1 var(--f-display); }
+.stat span { font: 500 10px/1.4 var(--f-mono); color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
+button {
+  font: 600 14px/1 var(--f-body); border-radius: 6px; padding: 9px 14px; cursor: pointer;
+  border: 1px solid var(--rule); background: var(--panel); color: var(--fg);
+}
+button:hover { border-color: var(--accent); }
+button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+button.primary { background: var(--accent); color: var(--accent-fg); border-color: var(--accent); }
+button:disabled { opacity: .45; cursor: default; }
+.main { display: grid; grid-template-columns: 1fr; min-height: max(560px, calc(100vh - 80px)); }
+.main.open { grid-template-columns: 1fr 340px; }
+.sec-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.sec-head button { padding: 6px 10px; font-size: 13px; }
+#map { background: var(--seabed); min-height: max(560px, calc(100vh - 80px)); height: 100%; position: relative; }
+.maperr { position: absolute; inset: 0; display: grid; place-items: center; padding: 24px; text-align: center; color: var(--fg); z-index: 2000; }
+aside {
+  border-left: 1px solid var(--rule); background: var(--panel); overflow-y: auto; min-height: 0; max-height: max(560px, calc(100vh - 80px));
+  display: flex; flex-direction: column;
+}
+.sec { padding: 14px 16px; padding-right: max(16px, env(safe-area-inset-right, 0px)); border-bottom: 1px solid var(--rule); display: flex; flex-direction: column; gap: 10px; }
+.sec h2.blk-title { font: 700 26px/1 var(--f-display); letter-spacing: .01em; text-transform: none; color: var(--fg); }
+.sec h2 { margin: 0; font: 600 13px/1 var(--f-mono); text-transform: uppercase; letter-spacing: .1em; color: var(--muted); }
+.list { display: flex; flex-direction: column; }
+.row {
+  display: grid; grid-template-columns: 44px 1fr auto; align-items: center; gap: 10px;
+  padding: 8px 16px; border: 0; border-bottom: 1px solid var(--rule); border-radius: 0; background: transparent;
+  text-align: left; font: inherit; width: 100%;
+}
+.row:hover { background: color-mix(in srgb, var(--accent) 8%, transparent); }
+.row[aria-current="true"] { background: color-mix(in srgb, var(--line-sel) 22%, transparent); }
+.num {
+  font: 700 18px/1 var(--f-display); text-align: center; padding: 6px 0; border-radius: 5px;
+  background: var(--label-bg); color: var(--label-fg);
+}
+.row .note { color: var(--muted); font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+.row .area { font: 500 12px var(--f-mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+.empty { padding: 18px 16px; color: var(--muted); }
+.field { display: flex; flex-direction: column; gap: 4px; }
+.field label { font: 500 11px var(--f-mono); text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+.facts { display: grid; grid-template-columns: auto 1fr; gap: 4px 14px; font-size: 13px; margin: 0; }
+.facts dt { color: var(--muted); }
+.facts dd { margin: 0; font-variant-numeric: tabular-nums; min-width: 0; overflow-wrap: anywhere; }
+.btns { display: flex; gap: 8px; flex-wrap: wrap; }
+.banner {
+  position: absolute; z-index: 1000; left: 50%; transform: translateX(-50%); top: calc(12px + env(safe-area-inset-top, 0px));
+  background: var(--panel); color: var(--fg); border: 1px solid var(--rule); border-radius: 8px; padding: 8px 10px 8px 14px;
+  display: flex; gap: 10px; align-items: center; box-shadow: 0 6px 24px rgba(0,0,0,.25); max-width: calc(100% - 32px); flex-wrap: wrap;
+}
+.banner p { margin: 0; font-size: 13px; }
+.legend {
+  position: absolute; z-index: 800; right: calc(10px + env(safe-area-inset-right, 0px)); top: calc(10px + env(safe-area-inset-top, 0px));
+  background: var(--label-bg); color: var(--label-fg); border-radius: 6px; padding: 8px 10px; display: flex; flex-direction: column; gap: 5px;
+  font: 500 12px var(--f-body);
+}
+.legend label { display: flex; align-items: center; gap: 8px; cursor: pointer; user-select: none; padding: 2px 0; }
+.legend input { margin: 0; width: 14px; height: 14px; accent-color: var(--line-sel); cursor: pointer; }
+.legend label:has(input:not(:checked)) { opacity: .55; }
+.legend i { width: 14px; height: 10px; border-radius: 2px; border: 2px solid; box-sizing: border-box; }
+.legend .k-bone { border-color: var(--line-bone); background: color-mix(in srgb, var(--line-bone) 35%, transparent); }
+.legend .k-none { border-color: var(--line); background: color-mix(in srgb, var(--line) 20%, transparent); }
+.coords {
+  position: absolute; z-index: 800; left: calc(10px + env(safe-area-inset-left, 0px)); bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+  font: 500 12px var(--f-mono); background: var(--label-bg); color: var(--label-fg); padding: 4px 8px; border-radius: 4px; pointer-events: none;
+  font-variant-numeric: tabular-nums;
+}
+.notice { margin: 0; font-size: 13px; color: var(--muted); }
+/* map marks */
+.leaflet-container { font-family: var(--f-body); background: var(--seabed); }
+path.blk-halo { stroke: var(--halo); stroke-width: 6px; fill: none; pointer-events: none; }
+path.blk { stroke: var(--line); stroke-width: 2.5px; fill: var(--line); fill-opacity: .07; }
+path.blk:hover { fill-opacity: .2; }
+path.blk.bone { stroke: var(--line-bone); fill: var(--line-bone); fill-opacity: .14; }
+path.blk.bone:hover { fill-opacity: .28; }
+path.blk.sel { stroke: var(--line-sel); fill: var(--line-sel); fill-opacity: .16; stroke-width: 3px; }
+path.subfrag { stroke: #fffbe6; stroke-width: 2px; stroke-dasharray: 6 4; fill: none; pointer-events: none; }
+path.subfrag-halo { stroke: rgba(29, 22, 0, .6); stroke-width: 4.5px; fill: none; pointer-events: none; }
+.leaflet-tooltip.sub-label { background: #fffbe6; color: #1d1600; border: 0; box-shadow: none; border-radius: 3px; font: 600 12px/1 var(--f-mono); padding: 3px 5px; }
+.leaflet-tooltip.sub-label.bone { background: var(--line-bone); color: #fff; }
+.leaflet-tooltip.sub-label::before { display: none; }
+path.grid { stroke: rgba(255,255,255,.28); stroke-width: 1px; pointer-events: none; }
+.leaflet-tooltip.blk-label {
+  background: var(--label-bg); color: var(--label-fg); border: 0; box-shadow: none; border-radius: 4px;
+  font: 700 15px/1 var(--f-display); padding: 3px 7px;
+}
+.leaflet-tooltip.blk-label::before { display: none; }
+.leaflet-tooltip.blk-label.bone { background: var(--line-bone); color: #fff; }
+.leaflet-tooltip.blk-label.sel { background: var(--line-sel); color: #1d1600; }
+.gridlbl { font: 500 10px var(--f-mono); color: rgba(255,255,255,.75); text-shadow: 0 0 3px #000; white-space: nowrap; }
+.leaflet-control-scale-line { background: var(--label-bg); color: var(--label-fg); border-color: var(--label-fg); font: 500 11px var(--f-mono); }
+.zoombar a { display: grid; place-items: center; font: 600 18px/1 var(--f-body); }
+.leaflet-bar a { background: var(--panel); color: var(--fg); border-color: var(--rule); }
+.rec { display: flex; flex-direction: column; gap: 14px; }
+.rsec { display: flex; flex-direction: column; gap: 6px; }
+.rsec h3 { margin: 0; font: 500 11px var(--f-mono); text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+.kv { display: grid; grid-template-columns: auto 1fr; gap: 3px 12px; margin: 0; font-size: 14px; }
+.kv dt { font: 500 12px/1.6 var(--f-mono); color: var(--muted); }
+.kv dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+.ids { display: flex; flex-direction: column; gap: 4px; margin: 0; padding: 0; list-style: none; }
+.ids code { font: 500 13px var(--f-mono); user-select: all; overflow-wrap: anywhere; }
+.ids small { display: block; color: var(--muted); font-size: 12px; }
+.bone-yes { font-weight: 600; }
+.bone-no { color: var(--muted); }
+.bag { align-self: flex-start; font: 500 13px var(--f-mono); padding: 4px 8px; border: 1px dashed var(--muted); border-radius: 4px; }
+.pill { align-self: flex-start; display: inline-block; font: 600 12px/1 var(--f-body); padding: 5px 9px; border-radius: 999px; background: color-mix(in srgb, var(--accent) 16%, transparent); color: var(--fg); }
+.thumbs { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 8px; }
+.thumb { padding: 0; border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; background: var(--bg); display: flex; flex-direction: column; text-align: left; }
+.thumb img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.thumb span { font: 500 11px var(--f-mono); padding: 5px 7px; color: var(--muted); }
+.unexc { align-self: flex-start; font: 700 18px/1.1 var(--f-display); letter-spacing: .02em; padding: 8px 12px; border: 1.5px dashed var(--muted); border-radius: 6px; color: var(--fg); }
+.src { font-size: 12px; color: var(--muted); margin: 0; }
+.src a { color: var(--accent); }
+.lightbox { position: fixed; inset: 0; z-index: 5000; background: rgba(4, 10, 10, .9); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+  padding: calc(16px + env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) calc(16px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); }
+.lightbox img { max-width: 100%; max-height: calc(100% - 60px); object-fit: contain; border-radius: 4px; }
+.lightbox .lb-bar { display: flex; gap: 12px; align-items: center; color: #e8f3f1; font: 500 13px var(--f-mono); }
+.lock { position: fixed; inset: 0; z-index: 9000; background: var(--bg); display: grid; place-items: center;
+  padding: 24px max(16px, env(safe-area-inset-right, 0px)) 24px max(16px, env(safe-area-inset-left, 0px)); }
+.lock form { width: min(360px, 100%); display: flex; flex-direction: column; gap: 12px; }
+.lock h1 { margin: 0; font: 700 30px/1.05 var(--f-display); }
+.lock p { margin: 0; color: var(--muted); font-size: 14px; }
+.lock input[type=password] { font: 16px var(--f-body); color: var(--fg); background: var(--panel); border: 1px solid var(--rule); border-radius: 6px; padding: 10px 12px; }
+.lock .rem { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); }
+.lock .err { color: var(--danger); font-size: 13px; min-height: 1.2em; }
+@media (max-width: 760px) {
+  .app { height: auto; min-height: 100%; }
+  .main, .main.open { grid-template-columns: 1fr; }
+  #map { height: 62vh; min-height: 380px; }
+  .main { min-height: 0; }
+  aside { max-height: none; }
+  aside { border-left: 0; border-top: 1px solid var(--rule); }
+  .stats { margin-left: 0; order: 3; width: 100%; justify-content: flex-start; }
+  .stat { align-items: flex-start; }
+}
+@media (prefers-reduced-motion: reduce) { .leaflet-zoom-anim .leaflet-zoom-animated { transition: none !important; } }
+</style>
+
+<div class="lock" id="lock">
+  <form id="lock-form" autocomplete="on">
+    <h1>Kolone Bay · Site 01</h1>
+    <p>Enter the team password to view the excavation map.</p>
+    <input type="text" name="username" value="kolone-bay-site01" autocomplete="username" hidden>
+    <input type="password" id="lock-pw" autocomplete="current-password" aria-label="Password" required>
+    <label class="rem"><input type="checkbox" id="lock-rem">Remember on this device</label>
+    <button class="primary" type="submit" id="lock-go">Open map</button>
+    <div class="err" id="lock-err" role="alert"></div>
+  </form>
+</div>
+<div class="app">
+  <header>
+    <div class="site">
+      <h1>Kolone Bay · Site 01</h1>
+      <span class="sub">Boundaries are approximate</span>
+    </div>
+    <div class="stats">
+      <div class="stat"><b id="s-count">–</b><span>Blocks</span></div>
+      <div class="stat"><b id="s-area">–</b><span>Mapped m²</span></div>
+    </div>
+  </header>
+  <div class="main" id="main">
+    <div id="map">
+      <div class="legend" id="legend" role="group" aria-label="Show blocks">
+        <label><input type="checkbox" id="t-bone" checked><i class="k-bone"></i>Bone confirmed</label>
+        <label><input type="checkbox" id="t-none" checked><i class="k-none"></i>No bone confirmed</label>
+      </div>
+      <div class="coords" id="coords">x — · y —</div>
+      <div class="banner" id="banner" hidden>
+        <p id="banner-text"></p>
+        <div class="btns" id="banner-btns"></div>
+      </div>
+    </div>
+    <aside id="side" hidden>
+      <section class="sec" id="detail" hidden>
+        <div class="sec-head"><h2 class="blk-title" id="d-title">Block</h2><button type="button" id="b-close">Close</button></div>
+        <div class="rec" id="rec"></div>
+        <dl class="facts">
+          <dt>Approximate 2D area</dt><dd id="d-area"></dd>
+        </dl>
+      </section>
+    </aside>
+  </div>
+</div>
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Photo">
+  <img id="lb-img" alt="">
+  <div class="lb-bar"><span id="lb-cap"></span><button type="button" id="lb-close">Close</button></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+function mapError(msg) { const d = document.createElement("div"); d.className = "maperr"; d.textContent = msg; document.getElementById("map").append(d); }
+window.addEventListener("error", e => { if (!window.L) mapError("The map library didn't load. Check your connection and reload the page."); });
+if (!window.L) mapError("The map library didn't load. Check your connection and reload the page.");
+const LOCK = {"salt": "7MkOly+QtX/b2Uyn0x0oGA==", "iter": 600000, "check": "SWsoQHA3gVYssFaEGJ3EkJdvAWXs/sUBh+thUiGzv3SL+ce5WQ=="};
+const b64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+let unlockKey; const KEY = new Promise(r => { unlockKey = r; });
+async function decryptBytes(buf, key) { const u = new Uint8Array(buf); return crypto.subtle.decrypt({ name: "AES-GCM", iv: u.slice(0, 12) }, key, u.slice(12)); }
+async function decFetch(path) { const key = await KEY; const res = await fetch(path + ".enc"); if (!res.ok) throw new Error(res.status); return decryptBytes(await res.arrayBuffer(), key); }
+const blobCache = new Map();
+function decUrl(path, type) {
+  if (!blobCache.has(path)) blobCache.set(path, decFetch(path).then(b => URL.createObjectURL(new Blob([b], { type }))));
+  return blobCache.get(path);
+}
+async function keyFromPassword(pw) {
+  const base = await crypto.subtle.importKey("raw", new TextEncoder().encode(pw), "PBKDF2", false, ["deriveKey"]);
+  return crypto.subtle.deriveKey({ name: "PBKDF2", hash: "SHA-256", salt: b64(LOCK.salt), iterations: LOCK.iter }, base, { name: "AES-GCM", length: 256 }, true, ["decrypt"]);
+}
+async function tryKey(key) { try { await decryptBytes(b64(LOCK.check), key); return true; } catch { return false; } }
+function store(kind) { try { return kind === "local" ? localStorage : sessionStorage; } catch { return null; } }
+async function unlockWith(key, remember) {
+  try { const raw = btoa(String.fromCharCode(...new Uint8Array(await crypto.subtle.exportKey("raw", key))));
+    store("session")?.setItem("kb1-key", raw); if (remember) store("local")?.setItem("kb1-key", raw); } catch {}
+  document.getElementById("lock").hidden = true; unlockKey(key);
+}
+(async () => {
+  let saved = null; try { saved = store("session")?.getItem("kb1-key") || store("local")?.getItem("kb1-key"); } catch {}
+  if (saved) {
+    try { const k = await crypto.subtle.importKey("raw", b64(saved), "AES-GCM", true, ["decrypt"]); if (await tryKey(k)) return unlockWith(k, false); } catch {}
+    try { store("session")?.removeItem("kb1-key"); store("local")?.removeItem("kb1-key"); } catch {}
+  }
+  document.getElementById("lock-pw").focus();
+})();
+document.getElementById("lock-form").addEventListener("submit", async e => {
+  e.preventDefault();
+  const go = document.getElementById("lock-go"), err = document.getElementById("lock-err");
+  go.disabled = true; go.textContent = "Checking…"; err.textContent = "";
+  const key = await keyFromPassword(document.getElementById("lock-pw").value);
+  if (await tryKey(key)) unlockWith(key, document.getElementById("lock-rem").checked);
+  else { err.textContent = "That password isn't right. Check it and try again."; go.disabled = false; go.textContent = "Open map"; document.getElementById("lock-pw").select(); }
+});
+const META = {"zmax":5,"tile":512,"pxPerM":640.0,"originM":[-6.060546875,9.8640625],"sizePx":[8256,9080],"tiles":{"0":["0_0"],"1":["0_0","0_1","1_0"],"2":["0_0","0_1","1_0","1_1","1_2","2_1"],"3":["0_0","0_1","0_2","1_0","1_1","1_2","1_3","2_0","2_1","2_2","2_3","2_4","3_2","3_3","3_4","4_2"],"4":["0_1","0_2","0_3","1_0","1_1","1_2","1_3","1_4","2_0","2_1","2_2","2_3","2_4","2_5","2_6","3_0","3_1","3_2","3_3","3_4","3_5","3_6","3_7","4_1","4_2","4_3","4_4","4_5","4_6","4_7","4_8","5_3","5_4","5_5","5_6","5_7","5_8","6_4","6_5","6_6","6_7","6_8","7_4","7_5","7_6","7_7","8_5"],"5":["0_4","0_5","0_6","10_10","10_11","10_12","10_13","10_14","10_15","10_16","10_17","10_6","10_7","10_8","10_9","11_10","11_11","11_12","11_13","11_14","11_15","11_16","11_17","11_7","11_8","11_9","12_10","12_11","12_12","12_13","12_14","12_15","12_16","12_17","12_8","12_9","13_10","13_11","13_12","13_13","13_14","13_15","13_16","13_8","13_9","14_10","14_11","14_12","14_13","14_14","14_15","14_9","15_10","15_11","15_12","16_11","1_3","1_4","1_5","1_6","1_7","2_2","2_3","2_4","2_5","2_6","2_7","2_8","3_1","3_2","3_3","3_4","3_5","3_6","3_7","3_8","3_9","4_0","4_1","4_10","4_2","4_3","4_4","4_5","4_6","4_7","4_8","4_9","5_0","5_1","5_10","5_11","5_12","5_2","5_3","5_4","5_5","5_6","5_7","5_8","5_9","6_0","6_1","6_10","6_11","6_12","6_13","6_2","6_3","6_4","6_5","6_6","6_7","6_8","6_9","7_1","7_10","7_11","7_12","7_13","7_14","7_2","7_3","7_4","7_5","7_6","7_7","7_8","7_9","8_10","8_11","8_12","8_13","8_14","8_15","8_2","8_3","8_4","8_5","8_6","8_7","8_8","8_9","9_10","9_11","9_12","9_13","9_14","9_15","9_16","9_4","9_5","9_6","9_7","9_8","9_9"]}};
+const BLANK = "data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAIBTAA7";
+const $ = id => document.getElementById(id);
+
+// ---- map in site metres: lng = x (east), lat = y (north) ----
+const a = META.pxPerM / 2 ** META.zmax;
+const [ox, oy] = META.originM;
+const CRS = L.extend({}, L.CRS.Simple, { transformation: new L.Transformation(a, -a * ox, -a, a * oy) });
+const ll = (x, y) => L.latLng(y, x);
+const wM = META.sizePx[0] / META.pxPerM, hM = META.sizePx[1] / META.pxPerM;
+const siteBounds = L.latLngBounds(ll(ox, oy - hM), ll(ox + wM, oy));
+
+const map = L.map("map", { crs: CRS, minZoom: -1, maxZoom: 6, zoomSnap: 0, zoomDelta: 1, scrollWheelZoom: false,
+  bounceAtZoomLimits: false, maxBoundsViscosity: 0.85, zoomControl: false, attributionControl: false,
+  maxBounds: siteBounds.pad(0.35), boxZoom: false });
+function fitSite(animate) {
+  map.setMinZoom(-3);
+  map.fitBounds(siteBounds, { padding: [10, 10], animate: !!animate });
+  map.setMinZoom(map.getBoundsZoom(siteBounds, false, L.point(20, 20)) - 0.3);
+}
+fitSite(false);
+const ZoomBar = L.Control.extend({
+  options: { position: "topleft" },
+  onAdd() {
+    const bar = L.DomUtil.create("div", "leaflet-bar zoombar");
+    const mk = (html, title, fn) => { const a = L.DomUtil.create("a", "", bar); a.href = "#"; a.innerHTML = html; a.title = title; a.setAttribute("role", "button"); a.setAttribute("aria-label", title);
+      L.DomEvent.on(a, "click", e => { L.DomEvent.preventDefault(e); L.DomEvent.stopPropagation(e); fn(); }); return a; };
+    mk("+", "Zoom in", () => map.zoomIn());
+    mk("&minus;", "Zoom out", () => map.zoomOut());
+    mk('<svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M1 5V1h4M9 1h4v4M13 9v4H9M5 13H1V9" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>', "Show whole site", () => fitSite(true));
+    return bar;
+  }
+});
+new ZoomBar().addTo(map);
+
+(() => {
+  const box = map.getContainer();
+  let goal = null, raf = 0, endTimer = 0, moved = false, mouse = null, anchor = null;
+  const clamp = z => Math.max(map.getMinZoom(), Math.min(map.getMaxZoom(), z));
+  function step() {
+    const z = map.getZoom();
+    let nz = z + (goal - z) * 0.28;
+    if (Math.abs(goal - nz) < 0.002) nz = goal;
+    const half = map.getSize().divideBy(2), off = mouse.subtract(half);
+    const center = map.unproject(map.project(anchor, nz).subtract(off), nz);
+    if (!moved) { map._moveStart(true, false); moved = true; }
+    map._move(center, nz);
+    raf = nz === goal ? 0 : requestAnimationFrame(step);
+    if (!raf && !endTimer) finish();
+  }
+  function finish() { if (moved) { map._moveEnd(true); moved = false; } goal = null; }
+  box.addEventListener("wheel", e => {
+    e.preventDefault();
+    if (goal === null) { map._stop(); goal = map.getZoom(); }
+    mouse = map.mouseEventToContainerPoint(e);
+    anchor = map.containerPointToLatLng(mouse);
+    // trackpad pinch arrives as ctrl+wheel with small deltas; mouse wheels send big ones
+    const px = e.deltaMode === 1 ? e.deltaY * 33 : e.deltaMode === 2 ? e.deltaY * 400 : e.deltaY;
+    goal = clamp(goal - px * (e.ctrlKey ? 0.012 : 0.0045));
+    clearTimeout(endTimer);
+    endTimer = setTimeout(() => { endTimer = 0; if (!raf) finish(); }, 160);
+    if (!raf) raf = requestAnimationFrame(step);
+  }, { passive: false });
+})();
+let fitted = $("map").clientHeight > 50;
+new ResizeObserver(() => { map.invalidateSize(); if (!fitted && $("map").clientHeight > 50) { fitted = true; fitSite(false); } }).observe($("map"));
+const have = {}; for (const z in META.tiles) have[z] = new Set(META.tiles[z]);
+const Tiles = L.TileLayer.extend({
+  createTile(c, done) {
+    const img = document.createElement("img"); img.alt = ""; img.setAttribute("role", "presentation");
+    const k = c.x + "_" + c.y;
+    if (!(have[c.z] && have[c.z].has(k))) { img.src = BLANK; setTimeout(() => done(null, img)); return img; }
+    decFetch(`tiles/${c.z}/${k}.webp`).then(b => {
+      const u = URL.createObjectURL(new Blob([b], { type: "image/webp" }));
+      img.onload = () => { URL.revokeObjectURL(u); done(null, img); };
+      img.onerror = ev => { URL.revokeObjectURL(u); done(ev, img); };
+      img.src = u;
+    }).catch(ev => done(ev, img));
+    return img;
+  }
+});
+new Tiles("", { tileSize: META.tile, minNativeZoom: 0, maxNativeZoom: META.zmax, minZoom: -3, maxZoom: 6, noWrap: true, bounds: siteBounds, keepBuffer: 4, updateWhenZooming: true }).addTo(map);
+L.control.scale({ imperial: false, maxWidth: 160, position: "bottomright" }).addTo(map);
+
+// metre grid with edge labels
+const grid = L.layerGroup().addTo(map);
+for (let x = Math.ceil(ox); x <= ox + wM; x++) {
+  L.polyline([ll(x, oy - hM), ll(x, oy)], { className: "grid", interactive: false }).addTo(grid);
+  L.marker(ll(x, oy), { interactive: false, icon: L.divIcon({ className: "gridlbl" + (x % 2 ? " odd" : ""), html: x + " m", iconSize: null, iconAnchor: [-3, -2] }) }).addTo(grid);
+}
+for (let y = Math.ceil(oy - hM); y <= oy; y++) {
+  L.polyline([ll(ox, y), ll(ox + wM, y)], { className: "grid", interactive: false }).addTo(grid);
+  L.marker(ll(ox, y), { interactive: false, icon: L.divIcon({ className: "gridlbl" + (y % 2 ? " odd" : ""), html: y + " m", iconSize: null, iconAnchor: [-3, 12] }) }).addTo(grid);
+}
+const lowz = () => $("map").classList.toggle("lowz", map.getZoom() < 1.5);
+map.on("zoomend", lowz); lowz();
+map.on("mousemove", e => { $("coords").textContent = `x ${e.latlng.lng.toFixed(2)} m · y ${e.latlng.lat.toFixed(2)} m`; });
+
+// ---- geometry ----
+const toLL = pts => pts.map(p => ll(p.x, p.y));
+const fromLL = lls => lls.map(p => ({ x: +p.lng.toFixed(4), y: +p.lat.toFixed(4) }));
+function area(pts) { let s = 0; for (let i = 0; i < pts.length; i++) { const p = pts[i], q = pts[(i + 1) % pts.length]; s += p.x * q.y - q.x * p.y; } return Math.abs(s) / 2; }
+function centroid(pts) {
+  let A = 0, cx = 0, cy = 0;
+  for (let i = 0; i < pts.length; i++) { const p = pts[i], q = pts[(i + 1) % pts.length], f = p.x * q.y - q.x * p.y; A += f; cx += (p.x + q.x) * f; cy += (p.y + q.y) * f; }
+  if (Math.abs(A) < 1e-9) return { x: pts[0].x, y: pts[0].y };
+  return { x: cx / (3 * A), y: cy / (3 * A) };
+}
+const fmtArea = m2 => m2.toFixed(2) + " m²";
+const labelSort = (p, q) => {
+  const na = parseFloat(p.label), nb = parseFloat(q.label);
+  if (!isNaN(na) && !isNaN(nb) && na !== nb) return na - nb;
+  return String(p.label).localeCompare(String(q.label), undefined, { numeric: true });
+};
+
+// ---- state ----
+let blocks = [];            // [{id, label, outline, records, ...}]
+const layers = new Map();   // id -> {poly, halo}
+let selectedId = null;
+
+// ---- layers ----
+const subLayer = L.layerGroup().addTo(map);
+const plainSub = s => String(s).replace(/^0+(?=\d)/, "").toUpperCase();
+function drawSubs(b) {
+  subLayer.clearLayers();
+  if (!b || !Array.isArray(b.subOutlines) || b.subOutlines.length < 2) return false;
+  for (const s of b.subOutlines) {
+    if (!Array.isArray(s.outline) || s.outline.length < 3) continue;
+    const lls = toLL(s.outline);
+    L.polygon(lls, { className: "subfrag-halo", interactive: false }).addTo(subLayer);
+    const poly = L.polygon(lls, { className: "subfrag", interactive: false }).addTo(subLayer);
+    const rec = (b.records || []).find(r => plainSub(subOf(r.id)) === plainSub(s.label));
+    const c = centroid(s.outline);
+    poly.bindTooltip(s.label, { permanent: true, direction: "center", className: "sub-label" + (rec && rec.boneConfirmed ? " bone" : ""), interactive: false }).openTooltip(ll(c.x, c.y));
+  }
+  return true;
+}
+const hasBone = b => Array.isArray(b.records) && b.records.some(r => r.boneConfirmed);
+const show = { bone: true, none: true };
+const visible = b => show[hasBone(b) ? "bone" : "none"];
+function syncLayers() {
+  const ids = new Set(blocks.map(b => b.id));
+  for (const [id, l] of layers) if (!ids.has(id)) { map.removeLayer(l.poly); map.removeLayer(l.halo); layers.delete(id); }
+  for (const b of blocks) {
+    if (!Array.isArray(b.outline) || b.outline.length < 3) continue;
+    let l = layers.get(b.id);
+    const lls = toLL(b.outline);
+    if (!l) {
+      const halo = L.polygon(lls, { className: "blk-halo", interactive: false }).addTo(map);
+      const poly = L.polygon(lls, { className: "blk" }).addTo(map);
+      poly.on("click", ev => { L.DomEvent.stopPropagation(ev); select(b.id, false); });
+      l = { poly, halo }; layers.set(b.id, l);
+    } else { l.poly.setLatLngs(lls); l.halo.setLatLngs(lls); }
+    if (!visible(b)) { map.removeLayer(l.poly); map.removeLayer(l.halo); continue; }
+    if (!map.hasLayer(l.poly)) { l.halo.addTo(map); l.poly.addTo(map); }
+    const c = centroid(b.outline);
+    l.poly.unbindTooltip().bindTooltip(String(b.label || "?"), { permanent: true, direction: "center", className: "blk-label" + (b.id === selectedId ? " sel" : hasBone(b) ? " bone" : ""), interactive: false });
+    l.poly.closeTooltip(); l.poly.openTooltip(ll(c.x, c.y));
+    const el = l.poly.getElement(); if (el) { el.classList.toggle("sel", b.id === selectedId); el.classList.toggle("bone", hasBone(b)); }
+  }
+}
+
+// ---- side panel ----
+function renderStats() {
+  $("s-count").textContent = blocks.length;
+  $("s-area").textContent = blocks.reduce((s, b) => s + (b.outline ? area(b.outline) : 0), 0).toFixed(2);
+}
+
+function renderDetail() {
+  const b = blocks.find(x => x.id === selectedId);
+  $("detail").hidden = $("side").hidden = !b;
+  const wasOpen = $("main").classList.contains("open");
+  $("main").classList.toggle("open", !!b);
+  if (wasOpen !== !!b) map.invalidateSize();
+  if (!b) return;
+  $("d-title").textContent = "Block " + (b.label || "?");
+  renderRecords(b);
+  $("d-area").textContent = fmtArea(area(b.outline));
+}
+
+function el(tag, cls, text) { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+function sec(title) { const s = el("section", "rsec"); s.append(el("h3", null, title)); return s; }
+const subOf = id => { const m = String(id || "").match(/_([^_]+)$/); return m ? m[1] : String(id || "?"); };
+function kvList(recs, fn) {
+  const dl = el("dl", "kv");
+  for (const r of recs) { const dd = el("dd"); const v = fn(r); if (v instanceof Node) dd.append(v); else dd.textContent = v; dl.append(el("dt", null, subOf(r.id)), dd); }
+  return dl;
+}
+function sameAll(recs, fn) { const vals = recs.map(fn); return vals.every(v => v === vals[0]) ? vals[0] : undefined; }
+let recKey = "";
+function renderRecords(b) {
+  const box = $("rec"), recs = Array.isArray(b.records) ? b.records : [];
+  const key = b.id + JSON.stringify(recs);
+  if (key === recKey) return; recKey = key;
+  box.textContent = "";
+  if (!recs.length) {
+    box.append(el("p", "src", "No details recorded for this block yet.")); return;
+  }
+  // Block IDs
+  const s1 = sec("Block IDs"), ul = el("ul", "ids");
+  for (const r of recs) { const li = el("li"); li.append(el("code", null, r.id)); if (r.notes) li.append(el("small", null, r.notes)); ul.append(li); }
+  s1.append(ul);
+  const notEx = r => /not yet excavated/i.test(r.status || "");
+  function bonesSec() {
+    const s = sec("Bones embedded"), bl = el("ul", "ids");
+    for (const r of recs) {
+      const li = el("li");
+      li.append(r.boneConfirmed ? el("span", "bone-yes", r.bones || "Confirmed, not yet identified") : el("span", "bone-no", "None"), " - " + plainSub(subOf(r.id)));
+      bl.append(li);
+    }
+    s.append(bl); return s;
+  }
+  if (recs.every(notEx)) {
+    box.append(el("div", "unexc", "Not yet excavated"), s1);
+    if (recs.some(r => r.boneConfirmed)) box.append(bonesSec());
+    return;
+  }
+  // Date excavated
+  const s2 = sec("Date excavated"), fmtDate = r => notEx(r) ? "Not yet excavated" : (r.dateExcavated || "Not recorded");
+  const one = sameAll(recs, fmtDate);
+  s2.append(one !== undefined ? el("div", /^Not /.test(one) ? "bone-no" : null, one) : kvList(recs, fmtDate));
+  // Bones embedded
+  const s3 = bonesSec();
+  // Associated pieces: label written on the separately kept bag
+  const s4 = sec("Associated pieces"), bag = r => r.associated ? String(r.associated) : "None listed";
+  const oneBag = sameAll(recs, bag);
+  s4.append(oneBag !== undefined ? el("span", oneBag === "None listed" ? "bone-no" : "bag", oneBag) : kvList(recs, r => el("span", r.associated ? "bag" : "bone-no", bag(r))));
+  // Current status
+  const s5 = sec("Current status"), st = sameAll(recs, r => r.status || "Not recorded");
+  if (st !== undefined) s5.append(el("span", "pill", st)); else s5.append(kvList(recs, r => el("span", "pill", r.status || "Not recorded")));
+  // Images
+  const s6 = sec("Images"), photos = recs.filter(r => r.photo);
+  if (!photos.length) s6.append(el("span", "bone-no", "No photos listed in the sheet"));
+  else {
+    const g = el("div", "thumbs");
+    for (const r of photos) {
+      const t = el("button", "thumb"); t.type = "button";
+      const im = el("img"); decUrl(r.photo, "image/jpeg").then(u => { im.src = u; }); im.alt = "Photo of " + r.id;
+      t.append(im);
+      t.addEventListener("click", () => decUrl(r.photo, "image/jpeg").then(u => openPhoto(u, r.id)));
+      g.append(t);
+    }
+    s6.append(g);
+  }
+  box.append(s1, s2, s3, s4, s5, s6);
+}
+let lbReturn = null;
+function openPhoto(src, cap) { lbReturn = document.activeElement; $("lb-img").src = src; $("lb-img").alt = cap; $("lb-cap").textContent = cap; $("lightbox").hidden = false; $("lb-close").focus(); }
+function closePhoto() { $("lightbox").hidden = true; $("lb-img").removeAttribute("src"); if (lbReturn) lbReturn.focus(); }
+$("lb-close").addEventListener("click", closePhoto);
+$("lightbox").addEventListener("click", e => { if (e.target.id === "lightbox") closePhoto(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape" && !$("lightbox").hidden) { e.stopImmediatePropagation(); closePhoto(); } }, true);
+
+function render() {
+  syncLayers();
+  const sel = blocks.find(x => x.id === selectedId);
+  if (drawSubs(sel)) { const l = layers.get(sel.id); if (l) l.poly.closeTooltip(); }
+  renderStats(); renderDetail();
+}
+
+function select(id, fly) {
+  selectedId = id;
+  render();
+  const l = layers.get(id);
+  if (fly && l) map.flyToBounds(l.poly.getBounds(), { padding: [70, 70], maxZoom: 3.25, duration: matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : .3, easeLinearity: .35 });
+}
+map.on("click", () => { if (selectedId) { selectedId = null; render(); } });
+
+// ---- banner ----
+function banner(text, buttons) {
+  const bn = $("banner"); bn.hidden = !text;
+  $("banner-text").textContent = text || "";
+  const bb = $("banner-btns"); bb.textContent = "";
+  for (const [label, fn] of buttons || []) {
+    const btn = document.createElement("button"); btn.type = "button"; btn.textContent = label;
+    btn.addEventListener("click", fn); bb.append(btn);
+  }
+}
+$("b-close").addEventListener("click", () => { selectedId = null; render(); });
+L.DomEvent.disableClickPropagation($("legend"));
+L.DomEvent.disableScrollPropagation($("legend"));
+for (const [id, key] of [["t-bone", "bone"], ["t-none", "none"]]) {
+  $(id).addEventListener("change", e => {
+    show[key] = e.target.checked;
+    const sel = blocks.find(x => x.id === selectedId);
+    if (sel && !visible(sel)) selectedId = null;
+    render();
+  });
+}
+
+// ---- block data: published with the page, so no sign-in is needed ----
+(async () => {
+  try {
+    const data = JSON.parse(new TextDecoder().decode(await decFetch("data/blocks.json")));
+    blocks = (data.blocks || []).filter(b => Array.isArray(b.outline) && b.outline.length >= 3);
+    render();
+  } catch (e) {
+    renderStats();
+    banner("The block outlines didn't load. Reload the page to try again.", [["Dismiss", () => banner(null)]]);
+  }
+})();
+</script>
+
+</body>
+</html>
