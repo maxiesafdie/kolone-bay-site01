@@ -253,7 +253,7 @@ path.grid { stroke: rgba(255,255,255,.28); stroke-width: 1px; pointer-events: no
 function mapError(msg) { const d = document.createElement("div"); d.className = "maperr"; d.textContent = msg; document.getElementById("map").append(d); }
 window.addEventListener("error", e => { if (!window.L) mapError("The map library didn't load. Check your connection and reload the page."); });
 if (!window.L) mapError("The map library didn't load. Check your connection and reload the page.");
-const LOCK = {"salt": "7MkOly+QtX/b2Uyn0x0oGA==", "iter": 600000, "check": "SWsoQHA3gVYssFaEGJ3EkJdvAWXs/sUBh+thUiGzv3SL+ce5WQ=="};
+const LOCK = {"salt": "5A6GepQSTxtYrY6Sdli4Aw==", "iter": 600000, "check": "yO+opaUbJBiNlFjGL6/JJTPqqV1wV3tkJwef2i1ZwEC7eFkoSw=="};
 const b64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
 let unlockKey; const KEY = new Promise(r => { unlockKey = r; });
 async function decryptBytes(buf, key) { const u = new Uint8Array(buf); return crypto.subtle.decrypt({ name: "AES-GCM", iv: u.slice(0, 12) }, key, u.slice(12)); }
@@ -521,8 +521,8 @@ function renderRecords(b) {
   const s5 = sec("Current status"), st = sameAll(recs, r => r.status || "Not recorded");
   if (st !== undefined) s5.append(el("span", "pill", st)); else s5.append(kvList(recs, r => el("span", "pill", r.status || "Not recorded")));
   // Images
-  const s6 = sec("Images"), photos = recs.filter(r => r.photo);
-  if (!photos.length) s6.append(el("span", "bone-no", "No photos listed in the sheet"));
+  const s6 = sec("Images"), photos = recs.flatMap(rec => (rec.photos || (rec.photo ? [{ path: rec.photo }] : [])).map(p => ({ photo: p.path, id: rec.id })));
+  if (!photos.length) s6.append(el("span", "bone-no", "No photos yet"));
   else {
     const g = el("div", "thumbs");
     for (const r of photos) {
