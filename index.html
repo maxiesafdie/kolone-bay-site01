@@ -219,7 +219,6 @@ path.grid { stroke: rgba(255,255,255,.28); stroke-width: 1px; pointer-events: no
     </div>
     <div class="stats">
       <div class="stat"><b id="s-count">–</b><span>Blocks</span></div>
-      <div class="stat"><b id="s-area">–</b><span>Mapped m²</span></div>
     </div>
   </header>
   <div class="main" id="main">
@@ -260,7 +259,7 @@ path.grid { stroke: rgba(255,255,255,.28); stroke-width: 1px; pointer-events: no
 function mapError(msg) { const d = document.createElement("div"); d.className = "maperr"; d.textContent = msg; document.getElementById("map").append(d); }
 window.addEventListener("error", e => { if (!window.L) mapError("The map library didn't load. Check your connection and reload the page."); });
 if (!window.L) mapError("The map library didn't load. Check your connection and reload the page.");
-const LOCK = {"salt": "rpkXfFyC7Wo5ay1p7OOHIg==", "iter": 600000, "check": "YobLfQ9tPr/iGS9EDvnGixuTAPaSeAwmfdu6W1GkcH9/H2HATg=="};
+const LOCK = {"salt": "D1a8tJjjelHy5i9YraGK2w==", "iter": 600000, "check": "CXOn4g6r/s47kebeaf0Tt5Is3tk3OdIc0taxaj9du9OK3/rVSQ=="};
 const b64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
 let unlockKey; const KEY = new Promise(r => { unlockKey = r; });
 async function decryptBytes(buf, key) { const u = new Uint8Array(buf); return crypto.subtle.decrypt({ name: "AES-GCM", iv: u.slice(0, 12) }, key, u.slice(12)); }
@@ -462,7 +461,6 @@ function syncLayers() {
 // ---- side panel ----
 function renderStats() {
   $("s-count").textContent = blocks.length;
-  $("s-area").textContent = blocks.reduce((s, b) => s + (b.outline ? area(b.outline) : 0), 0).toFixed(2);
 }
 
 function renderDetail() {
