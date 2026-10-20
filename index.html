@@ -259,7 +259,7 @@ path.grid { stroke: rgba(255,255,255,.28); stroke-width: 1px; pointer-events: no
 function mapError(msg) { const d = document.createElement("div"); d.className = "maperr"; d.textContent = msg; document.getElementById("map").append(d); }
 window.addEventListener("error", e => { if (!window.L) mapError("The map library didn't load. Check your connection and reload the page."); });
 if (!window.L) mapError("The map library didn't load. Check your connection and reload the page.");
-const LOCK = {"salt": "D1a8tJjjelHy5i9YraGK2w==", "iter": 600000, "check": "CXOn4g6r/s47kebeaf0Tt5Is3tk3OdIc0taxaj9du9OK3/rVSQ=="};
+const LOCK = {"salt": "OsXwV59QNXlSnu+42hNYzQ==", "iter": 600000, "check": "8WnZB7yMtc04yWAFPOKAOA+PcSaQ/o3Q3OjrEtjJKa5kLWRTLQ=="};
 const b64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
 let unlockKey; const KEY = new Promise(r => { unlockKey = r; });
 async function decryptBytes(buf, key) { const u = new Uint8Array(buf); return crypto.subtle.decrypt({ name: "AES-GCM", iv: u.slice(0, 12) }, key, u.slice(12)); }
