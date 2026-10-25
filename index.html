@@ -263,7 +263,7 @@ const LOCK = {"salt": "OsXwV59QNXlSnu+42hNYzQ==", "iter": 600000, "check": "8WnZ
 const b64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
 let unlockKey; const KEY = new Promise(r => { unlockKey = r; });
 async function decryptBytes(buf, key) { const u = new Uint8Array(buf); return crypto.subtle.decrypt({ name: "AES-GCM", iv: u.slice(0, 12) }, key, u.slice(12)); }
-async function decFetch(path) { const key = await KEY; const res = await fetch(path + ".enc"); if (!res.ok) throw new Error(res.status); return decryptBytes(await res.arrayBuffer(), key); }
+async function decFetch(path) { const key = await KEY; const res = await fetch(path + ".enc", { cache: path.startsWith("data/") ? "no-cache" : "default" }); if (!res.ok) throw new Error(res.status); return decryptBytes(await res.arrayBuffer(), key); }
 const blobCache = new Map();
 function decUrl(path, type) {
   if (!blobCache.has(path)) blobCache.set(path, decFetch(path).then(b => URL.createObjectURL(new Blob([b], { type }))));
