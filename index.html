@@ -154,6 +154,12 @@ path.grid { stroke: rgba(255,255,255,.28); stroke-width: 1px; pointer-events: no
 .zoombar a { display: grid; place-items: center; font: 600 18px/1 var(--f-body); }
 .leaflet-bar a { background: var(--panel); color: var(--fg); border-color: var(--rule); }
 .rec { display: flex; flex-direction: column; gap: 14px; }
+.piece { display: flex; flex-direction: column; gap: 12px; padding: 12px 0 2px; border-top: 1px solid var(--rule); }
+.piece:first-child { border-top: 0; padding-top: 0; }
+.piece.solo { padding: 0; border: 0; }
+.piece-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.piece-name { margin: 0; font: 700 20px/1 var(--f-display); letter-spacing: .01em; text-transform: none; color: var(--fg); }
+.unexc.small { font-size: 13px; padding: 3px 8px; }
 .rsec { display: flex; flex-direction: column; gap: 6px; }
 .rsec h3 { margin: 0; font: 500 11px var(--f-mono); text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
 .kv { display: grid; grid-template-columns: auto 1fr; gap: 3px 12px; margin: 0; font-size: 14px; }
@@ -493,53 +499,52 @@ function renderRecords(b) {
   if (!recs.length) {
     box.append(el("p", "src", "No details recorded for this block yet.")); return;
   }
-  // Block IDs
-  const s1 = sec("Block IDs"), ul = el("ul", "ids");
-  for (const r of recs) { const li = el("li"); li.append(el("code", null, r.id)); if (r.notes) li.append(el("small", null, r.notes)); ul.append(li); }
-  s1.append(ul);
   const notEx = r => /not yet excavated/i.test(r.status || "");
-  function bonesSec() {
-    const s = sec("Bones embedded"), bl = el("ul", "ids");
-    for (const r of recs) {
-      const li = el("li");
-      li.append(r.boneConfirmed ? el("span", "bone-yes", r.bones || "Confirmed, not yet identified") : el("span", "bone-no", "None"), " - " + plainSub(subOf(r.id)));
-      bl.append(li);
-    }
-    s.append(bl); return s;
+  const grouped = recs.length > 1;
+  if (recs.every(notEx)) box.append(el("div", "unexc", "Not yet excavated"));
+  for (const r of recs) box.append(pieceGroup(r, grouped, notEx(r)));
+}
+function pieceGroup(r, grouped, unexcavated) {
+  const g = el("div", grouped ? "piece" : "piece solo");
+  if (grouped) {
+    const h = el("div", "piece-head");
+    h.append(el("h3", "piece-name", plainSub(subOf(r.id))));
+    if (unexcavated) h.append(el("span", "unexc small", "Not yet excavated"));
+    g.append(h);
   }
-  if (recs.every(notEx)) {
-    box.append(el("div", "unexc", "Not yet excavated"), s1);
-    if (recs.some(r => r.boneConfirmed)) box.append(bonesSec());
-    return;
-  }
-  // Date excavated
-  const s2 = sec("Date excavated"), fmtDate = r => notEx(r) ? "Not yet excavated" : (r.dateExcavated || "Not recorded");
-  const one = sameAll(recs, fmtDate);
-  s2.append(one !== undefined ? el("div", /^Not /.test(one) ? "bone-no" : null, one) : kvList(recs, fmtDate));
+  // ID (+ sheet note)
+  const sId = sec("Block ID"), ul = el("ul", "ids"), li = el("li");
+  li.append(el("code", null, r.id)); if (r.notes) li.append(el("small", null, r.notes));
+  ul.append(li); sId.append(ul); g.append(sId);
   // Bones embedded
-  const s3 = bonesSec();
+  const sBone = sec("Bones embedded");
+  sBone.append(r.boneConfirmed ? el("span", "bone-yes", r.bones || "Confirmed, not yet identified") : el("span", "bone-no", "None"));
+  if (unexcavated) { if (r.boneConfirmed) g.append(sBone); return g; }
+  // Date excavated
+  const sDate = sec("Date excavated");
+  sDate.append(el("div", r.dateExcavated ? null : "bone-no", r.dateExcavated || "Not recorded"));
   // Associated pieces: label written on the separately kept bag
-  const s4 = sec("Associated pieces"), bag = r => r.associated ? String(r.associated) : "None listed";
-  const oneBag = sameAll(recs, bag);
-  s4.append(oneBag !== undefined ? el("span", oneBag === "None listed" ? "bone-no" : "bag", oneBag) : kvList(recs, r => el("span", r.associated ? "bag" : "bone-no", bag(r))));
+  const sBag = sec("Associated pieces");
+  sBag.append(el("span", r.associated ? "bag" : "bone-no", r.associated ? String(r.associated) : "None listed"));
   // Current location
-  const s5 = sec("Current location"), st = sameAll(recs, r => r.status || "Not recorded");
-  if (st !== undefined) s5.append(el("span", "pill", st)); else s5.append(kvList(recs, r => el("span", "pill", r.status || "Not recorded")));
-  // Images
-  const s6 = sec("Images"), photos = recs.flatMap(rec => (rec.photos || (rec.photo ? [{ path: rec.photo }] : [])).map(p => ({ photo: p.path, id: rec.id })));
-  if (!photos.length) s6.append(el("span", "bone-no", "No photos yet"));
+  const sLoc = sec("Current location");
+  sLoc.append(el("span", "pill", r.status || "Not recorded"));
+  // Images (arrow keys step through this piece's photos)
+  const sImg = sec("Images"), photos = (r.photos || (r.photo ? [{ path: r.photo }] : [])).map(p => ({ photo: p.path, id: r.id }));
+  if (!photos.length) sImg.append(el("span", "bone-no", "No photos yet"));
   else {
-    const g = el("div", "thumbs");
-    photos.forEach((r, i) => {
+    const th = el("div", "thumbs");
+    photos.forEach((ph, i) => {
       const t = el("button", "thumb"); t.type = "button";
-      const im = el("img"); photoSrc(r.photo).then(u => { im.src = u; }); im.alt = "Photo of " + r.id;
+      const im = el("img"); photoSrc(ph.photo).then(u => { im.src = u; }); im.alt = "Photo of " + ph.id;
       t.append(im);
       t.addEventListener("click", () => openGallery(photos, i));
-      g.append(t);
+      th.append(t);
     });
-    s6.append(g);
+    sImg.append(th);
   }
-  box.append(s1, s2, s3, s4, s5, s6);
+  g.append(sDate, sBone, sBag, sLoc, sImg);
+  return g;
 }
 let lbReturn = null;
 const photoSrc = path => decUrl(path, "image/jpeg");
