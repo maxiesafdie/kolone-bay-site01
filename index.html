@@ -522,8 +522,8 @@ function renderRecords(b) {
   const s4 = sec("Associated pieces"), bag = r => r.associated ? String(r.associated) : "None listed";
   const oneBag = sameAll(recs, bag);
   s4.append(oneBag !== undefined ? el("span", oneBag === "None listed" ? "bone-no" : "bag", oneBag) : kvList(recs, r => el("span", r.associated ? "bag" : "bone-no", bag(r))));
-  // Current status
-  const s5 = sec("Current status"), st = sameAll(recs, r => r.status || "Not recorded");
+  // Current location
+  const s5 = sec("Current location"), st = sameAll(recs, r => r.status || "Not recorded");
   if (st !== undefined) s5.append(el("span", "pill", st)); else s5.append(kvList(recs, r => el("span", "pill", r.status || "Not recorded")));
   // Images
   const s6 = sec("Images"), photos = recs.flatMap(rec => (rec.photos || (rec.photo ? [{ path: rec.photo }] : [])).map(p => ({ photo: p.path, id: rec.id })));
