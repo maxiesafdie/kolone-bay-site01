@@ -521,19 +521,16 @@ function pieceGroup(r, grouped, unexcavated) {
   sBone.append(r.boneConfirmed ? el("span", "bone-yes", r.bones || "Confirmed, not yet identified") : el("span", "bone-no", "None"));
   if (unexcavated) { if (r.boneConfirmed) g.append(sBone); return g; }
   // Date excavated
-  const sDate = sec("Date excavated");
-  sDate.append(el("div", r.dateExcavated ? null : "bone-no", r.dateExcavated || "Not recorded"));
+  if (r.dateExcavated) { const s = sec("Date excavated"); s.append(el("div", null, r.dateExcavated)); g.append(s); }
+  g.append(sBone);
   // Associated pieces: label written on the separately kept bag
-  const sBag = sec("Associated pieces");
-  sBag.append(el("span", r.associated ? "bag" : "bone-no", r.associated ? String(r.associated) : "None listed"));
+  if (r.associated) { const s = sec("Associated pieces"); s.append(el("span", "bag", String(r.associated))); g.append(s); }
   // Current location
-  const sLoc = sec("Current location");
-  sLoc.append(el("span", "pill", r.status || "Not recorded"));
+  if (r.status) { const s = sec("Current location"); s.append(el("span", "pill", r.status)); g.append(s); }
   // Images (arrow keys step through this piece's photos)
-  const sImg = sec("Images"), photos = (r.photos || (r.photo ? [{ path: r.photo }] : [])).map(p => ({ photo: p.path, id: r.id }));
-  if (!photos.length) sImg.append(el("span", "bone-no", "No photos yet"));
-  else {
-    const th = el("div", "thumbs");
+  const photos = (r.photos || (r.photo ? [{ path: r.photo }] : [])).map(p => ({ photo: p.path, id: r.id }));
+  if (photos.length) {
+    const sImg = sec("Images"), th = el("div", "thumbs");
     photos.forEach((ph, i) => {
       const t = el("button", "thumb"); t.type = "button";
       const im = el("img"); photoSrc(ph.photo).then(u => { im.src = u; }); im.alt = "Photo of " + ph.id;
@@ -541,9 +538,8 @@ function pieceGroup(r, grouped, unexcavated) {
       t.addEventListener("click", () => openGallery(photos, i));
       th.append(t);
     });
-    sImg.append(th);
+    sImg.append(th); g.append(sImg);
   }
-  g.append(sDate, sBone, sBag, sLoc, sImg);
   return g;
 }
 let lbReturn = null;
