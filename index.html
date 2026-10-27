@@ -518,7 +518,7 @@ function pieceGroup(r, grouped, unexcavated) {
   ul.append(li); sId.append(ul); g.append(sId);
   // Bones embedded
   const sBone = sec("Bones embedded");
-  sBone.append(r.boneConfirmed ? el("span", "bone-yes", r.bones || "Confirmed, not yet identified") : el("span", "bone-no", "None"));
+  sBone.append(r.boneConfirmed ? el("span", "bone-yes", r.bones || "Confirmed, not yet identified") : el("span", "bone-no", "None confirmed"));
   if (unexcavated) { if (r.boneConfirmed) g.append(sBone); return g; }
   // Date excavated
   if (r.dateExcavated) { const s = sec("Date excavated"); s.append(el("div", null, r.dateExcavated)); g.append(s); }
