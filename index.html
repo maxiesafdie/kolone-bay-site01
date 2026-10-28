@@ -493,9 +493,12 @@ function sameAll(recs, fn) { const vals = recs.map(fn); return vals.every(v => v
 let recKey = "";
 function renderRecords(b) {
   const box = $("rec"), recs = Array.isArray(b.records) ? b.records : [];
-  const key = b.id + JSON.stringify(recs);
+  const blockPhotos = (b.photos || []).map(p => ({ photo: p.path, id: "Block " + b.label }));
+  const key = b.id + JSON.stringify(recs) + JSON.stringify(blockPhotos);
   if (key === recKey) return; recKey = key;
   box.textContent = "";
+  // Photos of the block as a whole (loose in the block's Drive folder, not tied to one piece)
+  if (blockPhotos.length) { const s = sec("Block photos"); s.append(thumbGrid(blockPhotos)); box.append(s); }
   if (!recs.length) {
     box.append(el("p", "src", "No details recorded for this block yet.")); return;
   }
@@ -529,18 +532,19 @@ function pieceGroup(r, grouped, unexcavated) {
   if (r.status) { const s = sec("Current location"); s.append(el("span", "pill", r.status)); g.append(s); }
   // Images (arrow keys step through this piece's photos)
   const photos = (r.photos || (r.photo ? [{ path: r.photo }] : [])).map(p => ({ photo: p.path, id: r.id }));
-  if (photos.length) {
-    const sImg = sec("Images"), th = el("div", "thumbs");
-    photos.forEach((ph, i) => {
-      const t = el("button", "thumb"); t.type = "button";
-      const im = el("img"); photoSrc(ph.photo).then(u => { im.src = u; }); im.alt = "Photo of " + ph.id;
-      t.append(im);
-      t.addEventListener("click", () => openGallery(photos, i));
-      th.append(t);
-    });
-    sImg.append(th); g.append(sImg);
-  }
+  if (photos.length) { const sImg = sec("Images"); sImg.append(thumbGrid(photos)); g.append(sImg); }
   return g;
+}
+function thumbGrid(photos) {
+  const th = el("div", "thumbs");
+  photos.forEach((ph, i) => {
+    const t = el("button", "thumb"); t.type = "button";
+    const im = el("img"); photoSrc(ph.photo).then(u => { im.src = u; }); im.alt = "Photo of " + ph.id;
+    t.append(im);
+    t.addEventListener("click", () => openGallery(photos, i));
+    th.append(t);
+  });
+  return th;
 }
 let lbReturn = null;
 const photoSrc = path => decUrl(path, "image/jpeg");
